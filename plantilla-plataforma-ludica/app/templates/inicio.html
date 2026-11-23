@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block titulo %}Chispa | Aprende jugando{% endblock %}
+
+{% block contenido %}
+<header class="barra-superior">
+  <a class="marca" href="/" aria-label="Chispa, ir al inicio">
+    <span class="marca-icono" aria-hidden="true">✦</span>
+    <span class="marca-texto">chispa<small>APRENDE JUGANDO</small></span>
+  </a>
+  <nav class="navegacion" aria-label="Navegación principal">
+    <a class="enlace-activo" href="#misiones">Misiones</a>
+    <a href="#cursos">Mis cursos</a>
+    <a href="#logros">Mis logros</a>
+  </nav>
+  <div class="perfil">
+    <button id="boton-aula" class="boton-aula" type="button" aria-haspopup="dialog">
+      <span class="punto-aula" aria-hidden="true"></span>
+      <span>Aula: <strong id="etiqueta-aula">sin código</strong></span>
+      <span aria-hidden="true">⌄</span>
+    </button>
+    <button id="boton-avatar" class="boton-avatar" type="button" aria-label="Cambiar avatar y aula" aria-haspopup="dialog">
+      <span id="avatar-actual" aria-hidden="true">🦊</span>
+    </button>
+  </div>
+</header>
+
+<main class="pagina">
+  <section class="bienvenida" id="misiones" aria-labelledby="titulo-bienvenida">
+    <div class="bienvenida-texto">
+      <p class="sobretitulo"><span aria-hidden="true">☀</span> UN LUGAR PARA DESCUBRIR</p>
+      <h1 id="titulo-bienvenida">¡Hola, explorador!</h1>
+      <p class="descripcion-bienvenida">Hoy puede ser el día en que descubras algo increíble. ¿Qué aventura elegimos?</p>
+      <a class="boton boton-oscuro" href="#cursos">Ver mis aventuras <span aria-hidden="true">→</span></a>
+      <div class="racha"><span aria-hidden="true">🔥</span> ¡Llevas <strong>3 días</strong> aprendiendo!</div>
+    </div>
+    <div class="ilustracion-bienvenida" aria-hidden="true">
+      <span class="sol-ilustrado">☀</span>
+      <span class="nube nube-una">☁</span>
+      <span class="nube nube-dos">☁</span>
+      <span class="planeta">🪐</span>
+      <span class="cohete">🚀</span>
+      <span class="destello destello-uno">✦</span>
+      <span class="destello destello-dos">✦</span>
+      <span class="orbita"></span>
+    </div>
+    <div class="marcador" aria-label="Tus puntos acumulados">
+      <span class="marcador-icono" aria-hidden="true">★</span>
+      <span><strong id="total-estrellas">0</strong><small>estrellas</small></span>
+    </div>
+  </section>
+
+  <section class="seccion-cursos" id="cursos" aria-labelledby="titulo-cursos">
+    <div class="encabezado-seccion">
+      <div>
+        <p class="sobretitulo sobretitulo-suave">TU RINCÓN DE APRENDIZAJE</p>
+        <h2 id="titulo-cursos">¿Qué te gustaría aprender?</h2>
+        <p class="texto-seccion">Cada curso es una aventura llena de retos cortitos.</p>
+      </div>
+      <div class="filtros" role="group" aria-label="Filtrar cursos por tema">
+        <button class="filtro activo" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+        <button class="filtro" type="button" data-filtro="ciencia" aria-pressed="false">Ciencia</button>
+        <button class="filtro" type="button" data-filtro="matematicas" aria-pressed="false">Números</button>
+        <button class="filtro" type="button" data-filtro="lectura" aria-pressed="false">Lectura</button>
+      </div>
+    </div>
+
+    <div class="rejilla-cursos" id="rejilla-cursos">
+      <article class="tarjeta-curso curso-ciencia" data-id-curso="ciencia" data-categoria="ciencia">
+        <div class="ilustracion-curso fondo-menta" aria-hidden="true">
+          <span class="emoji-curso">🧪</span><span class="adorno adorno-uno">✦</span><span class="adorno adorno-dos">●</span>
+        </div>
+        <div class="contenido-curso">
+          <div class="etiquetas-curso"><span class="etiqueta etiqueta-menta">CIENCIA</span><span class="duracion">◷ 4 misiones</span></div>
+          <h3>Pequeños científicos</h3>
+          <p>Haz preguntas, prueba ideas y descubre cómo funciona el mundo.</p>
+          <div class="progreso-curso">
+            <div class="progreso-etiqueta"><span>Tu aventura</span><strong data-texto-progreso>0%</strong></div>
+            <div class="barra-progreso" role="progressbar" aria-label="Progreso en Pequeños científicos" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span data-barra-progreso></span></div>
+          </div>
+          <button class="boton boton-curso" type="button" data-iniciar-curso="ciencia">Continuar <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+
+      <article class="tarjeta-curso curso-matematicas" data-id-curso="matematicas" data-categoria="matematicas">
+        <div class="ilustracion-curso fondo-lila" aria-hidden="true">
+          <span class="emoji-curso">🔢</span><span class="adorno adorno-uno">+</span><span class="adorno adorno-dos">×</span>
+        </div>
+        <div class="contenido-curso">
+          <div class="etiquetas-curso"><span class="etiqueta etiqueta-lila">NÚMEROS</span><span class="duracion">◷ 4 misiones</span></div>
+          <h3>La isla de los números</h3>
+          <p>Resuelve acertijos y ayuda a los animalitos de la isla.</p>
+          <div class="progreso-curso">
+            <div class="progreso-etiqueta"><span>Tu aventura</span><strong data-texto-progreso>0%</strong></div>
+            <div class="barra-progreso" role="progressbar" aria-label="Progreso en La isla de los números" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span data-barra-progreso></span></div>
+          </div>
+          <button class="boton boton-curso" type="button" data-iniciar-curso="matematicas">Continuar <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+
+      <article class="tarjeta-curso curso-lectura" data-id-curso="lectura" data-categoria="lectura">
+        <div class="ilustracion-curso fondo-durazno" aria-hidden="true">
+          <span class="emoji-curso">📚</span><span class="adorno adorno-uno">✦</span><span class="adorno adorno-dos">✿</span>
+        </div>
+        <div class="contenido-curso">
+          <div class="etiquetas-curso"><span class="etiqueta etiqueta-durazno">LECTURA</span><span class="duracion">◷ 4 misiones</span></div>
+          <h3>Historias fantásticas</h3>
+          <p>Juega con las palabras e inventa historias sorprendentes.</p>
+          <div class="progreso-curso">
+            <div class="progreso-etiqueta"><span>Tu aventura</span><strong data-texto-progreso>0%</strong></div>
+            <div class="barra-progreso" role="progressbar" aria-label="Progreso en Historias fantásticas" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span data-barra-progreso></span></div>
+          </div>
+          <button class="boton boton-curso" type="button" data-iniciar-curso="lectura">Empezar <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+
+      <article class="tarjeta-curso curso-arte" data-id-curso="arte" data-categoria="arte">
+        <div class="ilustracion-curso fondo-amarillo" aria-hidden="true">
+          <span class="emoji-curso">🎨</span><span class="adorno adorno-uno">✦</span><span class="adorno adorno-dos">●</span>
+        </div>
+        <div class="contenido-curso">
+          <div class="etiquetas-curso"><span class="etiqueta etiqueta-amarilla">CREATIVIDAD</span><span class="duracion">◷ 4 misiones</span></div>
+          <h3>El taller de colores</h3>
+          <p>Mezcla, imagina y crea obras de arte a tu manera.</p>
+          <div class="progreso-curso">
+            <div class="progreso-etiqueta"><span>Tu aventura</span><strong data-texto-progreso>0%</strong></div>
+            <div class="barra-progreso" role="progressbar" aria-label="Progreso en El taller de colores" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span data-barra-progreso></span></div>
+          </div>
+          <button class="boton boton-curso" type="button" data-iniciar-curso="arte">Empezar <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="banner-logros" id="logros" aria-labelledby="titulo-logros">
+    <div class="insignia" aria-hidden="true">🏅</div>
+    <div>
+      <p class="sobretitulo sobretitulo-suave">COLECCIONA TUS LOGROS</p>
+      <h2 id="titulo-logros">¡Cada reto cuenta!</h2>
+      <p>Completa misiones para llenar tu colección de estrellas. ¡Tú puedes!</p>
+    </div>
+    <div class="estrellas-decorativas" aria-hidden="true">★ ✦ ★</div>
+  </section>
+
+  <footer class="pie">
+    <span>Hecho para aprender con curiosidad <span aria-hidden="true">💛</span></span>
+    <span>Un paso a la vez, ¡lo estás haciendo genial!</span>
+    <button id="boton-instalar" class="boton-instalar" type="button" hidden>Instalar aplicación</button>
+    <p id="ayuda-ios" class="ayuda-ios" hidden>En iPhone: toca <strong>Compartir</strong> y luego <strong>Agregar a inicio</strong>.</p>
+  </footer>
+</main>
+
+<dialog id="dialogo-leccion" class="dialogo" aria-labelledby="titulo-leccion">
+  <div class="dialogo-contenido">
+    <button class="boton-cerrar" type="button" data-cerrar-dialogo aria-label="Cerrar reto">×</button>
+    <div id="contenido-leccion"></div>
+  </div>
+</dialog>
+
+<dialog id="dialogo-aula" class="dialogo dialogo-aula" aria-labelledby="titulo-aula">
+  <form id="formulario-aula" class="dialogo-contenido">
+    <button class="boton-cerrar" type="button" data-cerrar-dialogo aria-label="Cerrar">×</button>
+    <p class="sobretitulo sobretitulo-suave">TU ESPACIO SEGURO</p>
+    <h2 id="titulo-aula">Elige tu avatar y aula</h2>
+    <p class="texto-ayuda">Tu profe puede compartir contigo un código para el aula.</p>
+    <fieldset class="selector-avatares">
+      <legend>Elige tu compañero de aventuras</legend>
+      <label><input type="radio" name="avatar" value="🦊" checked><span aria-hidden="true">🦊</span><span class="solo-lectores">Zorrito</span></label>
+      <label><input type="radio" name="avatar" value="🐼"><span aria-hidden="true">🐼</span><span class="solo-lectores">Panda</span></label>
+      <label><input type="radio" name="avatar" value="🐸"><span aria-hidden="true">🐸</span><span class="solo-lectores">Ranita</span></label>
+      <label><input type="radio" name="avatar" value="🦄"><span aria-hidden="true">🦄</span><span class="solo-lectores">Unicornio</span></label>
+    </fieldset>
+    <label class="etiqueta-campo" for="codigo-aula">Código de aula <span>(opcional)</span></label>
+    <input id="codigo-aula" name="codigo" class="campo-codigo" type="text" inputmode="text" autocomplete="off" maxlength="8" pattern="[A-Za-z0-9]{4,8}" placeholder="Ejemplo: SOL123" aria-describedby="ayuda-codigo">
+    <p id="ayuda-codigo" class="nota-prototipo">Prototipo: el código se guarda solo en este dispositivo; todavía no se verifica con un docente.</p>
+    <button class="boton boton-oscuro boton-guardar" type="submit">Guardar y continuar <span aria-hidden="true">→</span></button>
+  </form>
+</dialog>
+<div id="anuncio" class="anuncio" role="status" aria-live="polite"></div>
+{% endblock %}
