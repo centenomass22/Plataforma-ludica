@@ -1,4 +1,4 @@
-"""Pruebas de la interfaz y servicios principales."""
+﻿"""Pruebas de la interfaz y servicios principales."""
 
 from fastapi.testclient import TestClient
 
@@ -24,6 +24,12 @@ def test_salud_responde_ok():
     respuesta = cliente.get("/salud")
     assert respuesta.status_code == 200
     assert respuesta.json() == {"estado": "ok"}
+
+
+def test_api_version_devuelve_version_correcta():
+    respuesta = cliente.get("/api/version")
+    assert respuesta.status_code == 200
+    assert respuesta.json() == {"version": proyecto.VERSION}
 
 
 def test_api_devuelve_los_datos_del_proyecto():
